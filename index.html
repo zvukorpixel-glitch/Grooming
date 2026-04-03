@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Groomer Evgenia | Luxury Vintage Boutique Haifa</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-wood-light: #d9c8b3; 
+            --bg-wood-dark: #6f4e37; 
+            --retro-olive: #a4a946; 
+            --retro-orange: #d17849; 
+            --gold-vintage: #c5a367; 
+            --text-dark: #3a3a3a;
+            --white: #ffffff;
+            --cream: #fdfaf5;
+            --paws-width: 100px;
+        }
+
+        html, body { 
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path fill="%23000000" d="M256 224c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-112-64c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm224 0c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-112-96c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"/></svg>'), auto;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg-wood-light) url('https://www.transparenttextures.com/patterns/wood-pattern-1.png'); color: var(--text-dark); overflow-x: hidden; position: relative; }
+
+        .paws-column { position: fixed; top: 0; width: var(--paws-width); height: 100%; pointer-events: none; z-index: 1; display: flex; flex-direction: column; justify-content: space-around; align-items: center; }
+        .paws-column-left { left: 0; } .paws-column-right { right: 0; }
+        .shimmer-paw { color: #1a1a1a; opacity: 0.3; animation: pawShimmer 4s infinite alternate ease-in-out; font-size: 30px; }
+        @keyframes pawShimmer { 0% { opacity: 0.15; transform: scale(1); } 50% { opacity: 0.5; color: #000; } 100% { opacity: 0.2; } }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 20; }
+        .header { background: transparent; padding: 30px 0; text-align: center; }
+        .lang-switcher { display: inline-flex; align-items: center; font-weight: 700; color: var(--white); font-size: 16px; gap: 15px; background: rgba(0,0,0,0.3); padding: 10px 30px; border-radius: 50px; backdrop-filter: blur(5px); }
+        .lang-btn { cursor: pointer; opacity: 0.6; transition: 0.3s; } 
+        .lang-btn.active { opacity: 1; color: var(--gold-vintage); border-bottom: 2px solid var(--gold-vintage); }
+
+        .hero { padding: 40px 0; text-align: center; position: relative; }
+        .jrg-frame-main { position: relative; display: inline-block; padding: 40px; background: url('https://www.transparenttextures.com/patterns/gold-glitter.png'), var(--gold-vintage); border: 20px solid var(--gold-vintage); border-radius: 50% 50% 0 0; box-shadow: inset 0 0 30px rgba(0,0,0,0.5), 0 30px 60px rgba(0,0,0,0.3); }
+        .jrg-frame-main img { width: 100%; max-width: 480px; border-radius: 50% 50% 0 0; border: 15px solid var(--white); }
+        
+        .jrg-logo-box { margin: -100px auto 40px; position: relative; z-index: 20; max-width: 600px; padding: 40px; background: var(--retro-olive); border: 10px solid #f9f091; border-radius: 200px 200px 100px 100px; box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+        .jrg-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 6vw, 65px); font-weight: 700; color: var(--white); text-shadow: 2px 2px 0 var(--retro-orange); line-height: 1.1; }
+        .jrg-title span { font-size: 16px; font-family: 'Montserrat'; font-weight: 400; display: block; margin-top: 5px; letter-spacing: 3px; }
+        
+        .btn-jrg-appointment { display: inline-block; padding: 15px 40px; margin-top: -30px; position: relative; z-index: 25; background: var(--retro-orange); border: 4px solid var(--white); border-radius: 40px 10px 40px 10px; color: white; text-decoration: none; font-weight: 700; text-transform: uppercase; }
+
+        .services { padding: 80px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .jrg-portrait { text-align: center; }
+        .jrg-frame-portrait { position: relative; height: 320px; border-radius: 10px; overflow: hidden; background: var(--gold-vintage); border: 15px solid var(--gold-vintage); box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 25px; }
+        .jrg-frame-portrait img { width: 100%; height: 100%; object-fit: cover; border: 8px solid var(--white); }
+        
+        .img-before { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border: 8px solid var(--white); transition: 0.7s ease; }
+        .jrg-frame-portrait:hover .img-before { opacity: 0; }
+
+        .jrg-portrait h3 { font-family:'Playfair Display', serif; color:var(--gold-vintage); font-size:20px; margin-bottom: 5px; }
+        .jrg-portrait p { font-size: 12px; color: #666; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .games { padding: 80px 20px; background: var(--bg-wood-dark) url('https://www.transparenttextures.com/patterns/dark-wood.png'); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 60px; border-radius: 30px; border: 10px solid var(--gold-vintage); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .game-card-jrg { background: rgba(0,0,0,0.3); padding: 40px; border-radius: 20px; text-align: center; color: var(--cream); position: relative; overflow: hidden; }
+        #scan-line-jrg { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--retro-orange); animation: scanAni 3s infinite linear; }
+        @keyframes scanAni { 0% { top: 0; } 100% { top: 100%; } }
+        #ai-result-image { width: 100%; max-width: 250px; border-radius: 200px 200px 0 0; border: 8px solid var(--white); margin-top: 20px; }
+
+        #admin-panel { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--bg-wood-dark); padding: 30px; border-radius: 20px; border: 4px solid var(--gold-vintage); z-index: 999999; color: white; width: 90%; max-width: 350px; text-align: center; }
+        .admin-input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; }
+        .admin-btn { background: var(--retro-orange); color: white; padding: 12px; border: none; border-radius: 5px; width: 100%; cursor: pointer; font-weight: 700; }
+        #admin-trigger { position: fixed; bottom: 20px; right: 20px; color: var(--gold-vintage); opacity: 0.2; cursor: pointer; font-size: 20px; z-index: 1000; }
+
+        .footer { text-align: center; padding: 60px 0; color: #777; font-size: 12px; }
+
+        @media (max-width: 900px) { .services, .games { grid-template-columns: 1fr; } .paws-column { display: none; } }
+    </style>
+</head>
+<body onclick="handleAudio()">
+
+    <audio id="bark-sound" src="lai.mp3"></audio>
+    <audio id="bg-music" src="music.mp3" loop></audio>
+
+    <div class="paws-column paws-column-left" id="paws-left"></div>
+    <div class="paws-column paws-column-right" id="paws-right"></div>
+
+    <div class="dog-trigger" id="myDog" onclick="dogRunAway()" style="position:fixed; top:100px; right:25px; width:70px; height:70px; background:url('dog-go.png') no-repeat center; background-size:contain; cursor:pointer; z-index:1000;"></div>
+
+    <header class="header">
+        <div class="container">
+            <div class="lang-switcher">
+                <span onclick="setLang('ru')" id="btn-ru" class="lang-btn active">RU</span> |
+                <span onclick="setLang('en')" id="btn-en" class="lang-btn">EN</span> |
+                <span onclick="setLang('he')" id="btn-he" class="lang-btn">HE</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="jrg-frame-main"><img src="CHNR8555.JPG"></div>
+            <div class="jrg-logo-box">
+                <h1 class="jrg-title" id="main-title">Евгения <i>Груминг</i><span>ХАЙФА • АДАР</span></h1>
+            </div>
+            <a href="https://wa.me/your_wa" class="btn-jrg-appointment" id="main-btn">ЗАПИСАТЬСЯ НА ПРИЕМ</a>
+        </div>
+    </section>
+
+    <section class="services" id="gallery-container">
+        <div class="jrg-portrait"><div class="jrg-frame-portrait"><img src="dog0.jpg"><img src="dog1.jpg" class="img-before"></div><h3 data-key="s1_t">СТИЛЬ И СТРИЖКА</h3><p data-key="s1_p">Стрижка</p></div>
+        <div class="jrg-portrait"><div class="jrg-frame-portrait"><img src="dog2.jpg"></div><h3 data-key="s2_t">ЛЮКС SPA</h3><p data-key="s2_p">Уход</p></div>
+        <div class="jrg-portrait"><div class="jrg-frame-portrait"><img src="dog3.jpg"></div><h3 data-key="s3_t">ГИГИЕНА</h3><p data-key="s3_p">Забота</p></div>
+        
+        <div class="jrg-portrait"><div class="jrg-frame-portrait"><img src="dog21.jpg"></div><h3 data-key="s4_t">ПРЕМИУМ ТРИМ</h3><p data-key="s4_p">Тримминг</p></div>
+        <div class="jrg-portrait"><div class="jrg-frame-portrait"><img src="dog22.jpg"></div><h3 data-key="s5_t">ЭЛИТ РЕЛАКС</h3><p data-key="s5_p">Массаж</p></div>
+        <div class="jrg-portrait"><div class="jrg-frame-portrait"><img src="dog23.jpg"></div><h3 data-key="s6_t">МАСТЕР ГРУМ</h3><p data-key="s6_p">Комплекс</p></div>
+    </section>
+
+    <section class="games">
+        <div class="game-card-jrg">
+            <div id="scan-line-jrg"></div>
+            <h2 data-key="ai_t">AI МАГИЯ</h2>
+            <div id="ai-pre">
+                <input type="file" id="ai-input" style="display:none" onchange="runAi()">
+                <label for="ai-input" id="ai-btn-label" style="background:var(--retro-orange); color:white; padding:12px 25px; border-radius:50px; cursor:pointer; font-weight:bold; display:inline-block; font-size:12px;">ЗАГРУЗИТЬ ФОТО</label>
+            </div>
+            <div id="ai-post" style="display:none"><img src="dog11.jpg" id="ai-result-image"><p id="ai-text" style="margin-top:10px; font-weight:700;"></p></div>
+        </div>
+        <div class="game-card-jrg">
+            <h2 data-key="hat_t">СТИЛЬ ПИТОМЦА</h2>
+            <div style="width:160px; height:160px; margin:0 auto 20px; border-radius:80px; overflow:hidden; border:6px solid var(--white); position:relative;">
+                <img src="dog1.jpg" style="width:100%; height:100%; object-fit:cover;">
+                <img src="hat.png" id="hat-img" style="position:absolute; top:-100px; left:50%; transform:translateX(-50%); width:70px; transition:0.7s; opacity:0;">
+            </div>
+            <button onclick="toggleHat()" id="hat-btn" style="background:var(--gold-vintage); color:white; border:none; padding:12px 25px; border-radius:50px; font-weight:bold; cursor:pointer; font-size:12px;" data-key="hat_b">ПРИМЕРИТЬ</button>
+        </div>
+    </section>
+
+    <div id="admin-panel">
+        <h2 style="font-family:'Playfair Display';">НОВОЕ ФОТО</h2>
+        <input type="file" id="new-dog-img" class="admin-input" accept="image/*">
+        <input type="text" id="new-dog-name" class="admin-input" placeholder="Имя/Услуга">
+        <button class="admin-btn" onclick="addNewPortrait()">ДОБАВИТЬ</button>
+        <p onclick="document.getElementById('admin-panel').style.display='none'" style="margin-top:10px; cursor:pointer; opacity:0.6;">Отмена</p>
+    </div>
+
+    <div id="admin-trigger" onclick="checkPass()"><i class="fas fa-paw"></i></div>
+
+    <footer class="footer" id="footer-text">© 2026 ЕВГЕНИЯ ГРУМИНГ. ХАЙФА, ИЗРАИЛЬ.</footer>
+
+    <script>
+        const langData = {
+            'ru': { 'title': 'Евгения <i>Груминг</i><span>ХАЙФА • АДАР</span>', 'btn': 'ЗАПИСАТЬСЯ НА ПРИЕМ', 's1_t': 'СТИЛЬ И СТРИЖКА', 's1_p': 'Стрижка', 's2_t': 'ЛЮКС SPA', 's2_p': 'Уход', 's3_t': 'ГИГИЕНА', 's3_p': 'Забота', 's4_t': 'ПРЕМИУМ ТРИМ', 's4_p': 'Тримминг', 's5_t': 'ЭЛИТ РЕЛАКС', 's5_p': 'Массаж', 's6_t': 'МАСТЕР ГРУМ', 's6_p': 'Комплекс', 'ai_t': 'AI МАГИЯ', 'ai_btn': 'ЗАГРУЗИТЬ ФОТО', 'ai_done': 'Шедевр готов! ✨', 'hat_t': 'СТИЛЬ ПИТОМЦА', 'hat_b': 'ПРИМЕРИТЬ', 'footer': '© 2026 ЕВГЕНИЯ ГРУМИНГ. ХАЙФА, ИЗРАИЛЬ.' },
+            'en': { 'title': 'Evgenia <i>Grooming</i><span>HAIFA • HADAR</span>', 'btn': 'BOOK AN APPOINTMENT', 's1_t': 'STYLE & CUT', 's1_p': 'Grooming', 's2_t': 'LUXURY SPA', 's2_p': 'Spa', 's3_t': 'HYGIENE CARE', 's3_p': 'Care', 's4_t': 'PREMIUM TRIM', 's4_p': 'Trimming', 's5_t': 'ELITE RELAX', 's5_p': 'Massage', 's6_t': 'ULTIMATE GROOM', 's6_p': 'Full Set', 'ai_t': 'AI MAGIC', 'ai_btn': 'UPLOAD PHOTO', 'ai_done': 'Masterpiece ready! ✨', 'hat_t': 'PET STYLE', 'hat_b': 'TRY HAT', 'footer': '© 2026 EVGENIA GROOMING. HAIFA, ISRAEL.' },
+            'he': { 'title': 'יבגניה <i>Grooming</i><span>HAIFA • HADAR</span>', 'btn': 'קביעת תור לטיפוח', 's1_t': 'תספורת וסטייל', 's1_p': 'תספורת', 's2_t': 'ספא יוקרתי', 's2_p': 'טיפוח', 's3_t': 'היגיינה', 's3_p': 'טיפול', 's4_t': 'טרימינג פרימיום', 's4_p': 'טרימינג', 's5_t': 'רילקס עלית', 's5_p': 'עיסוי', 's6_t': 'מאסטר גרום', 's6_p': 'חבילה מלאה', 'ai_t': 'AI קסם', 'ai_btn': 'העלה תמונה', 'ai_done': 'הקסם מוכן! ✨', 'hat_t': 'סגנון החיה', 'hat_b': 'למדוד כובע', 'footer': '© 2026 יבגניה גרומינג. חיפה, ישראל.' }
+        };
+
+        function setLang(lang) {
+            document.body.dir = (lang === 'he') ? 'rtl' : 'ltr';
+            document.getElementById('main-title').innerHTML = langData[lang]['title'];
+            document.getElementById('main-btn').innerHTML = langData[lang]['btn'];
+            document.getElementById('ai-btn-label').innerHTML = langData[lang]['ai_btn'];
+            document.getElementById('footer-text').innerHTML = langData[lang]['footer'];
+            document.querySelectorAll('[data-key]').forEach(el => { const key = el.getAttribute('data-key'); if (langData[lang][key]) el.innerHTML = langData[lang][key]; });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+
+        function populatePaws(id) {
+            const c = document.getElementById(id);
+            for (let i = 0; i < 10; i++) {
+                const p = document.createElement('i'); p.className = 'fas fa-paw shimmer-paw';
+                p.style.top = (i * 10) + '%'; c.appendChild(p);
+            }
+        }
+        populatePaws('paws-left'); populatePaws('paws-right');
+
+        let audioOk = false;
+        function handleAudio() { if(!audioOk) { const m = document.getElementById('bg-music'); m.volume = 0.2; m.play(); audioOk = true; } }
+
+        function dogRunAway() {
+            const b = document.getElementById('bark-sound'); b.currentTime = 0; b.play();
+            document.getElementById('myDog').classList.add('dog-running-away');
+            setTimeout(() => { b.pause(); document.getElementById('myDog').style.display = 'none'; }, 1500);
+        }
+
+        function checkPass() {
+            if (prompt("Секретный код:") === "3784284") document.getElementById('admin-panel').style.display = 'block';
+        }
+
+        function addNewPortrait() {
+            const file = document.getElementById('new-dog-img').files[0], name = document.getElementById('new-dog-name').value;
+            if (file && name) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const html = `<div class="jrg-portrait"><div class="jrg-frame-portrait"><img src="${e.target.result}"></div><h3>${name.toUpperCase()}</h3></div>`;
+                    document.getElementById('gallery-container').insertAdjacentHTML('beforeend', html);
+                    document.getElementById('admin-panel').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function runAi() {
+            const scan = document.getElementById('scan-line-jrg'); scan.style.display = 'block';
+            document.getElementById('ai-pre').style.display = 'none';
+            setTimeout(() => {
+                scan.style.display = 'none'; document.getElementById('ai-post').style.display = 'block';
+                document.getElementById('ai-text').innerHTML = langData[document.querySelector('.lang-btn.active').id.split('-')[1]]['ai_done'];
+            }, 3000);
+        }
+
+        let hat = false;
+        function toggleHat() {
+            const h = document.getElementById('hat-img');
+            if (!hat) { h.style.top = '10px'; h.style.opacity = '1'; hat = true; }
+            else { h.style.top = '-100px'; h.style.opacity = '0'; hat = false; }
+        }
+    </script>
+</body>
+</html>
